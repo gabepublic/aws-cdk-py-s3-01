@@ -1,15 +1,22 @@
 from constructs import Construct
 from aws_cdk import (
-    Duration,
     RemovalPolicy,
     Stack,
-    aws_iam as iam,
-    aws_sqs as sqs,
-    aws_sns as sns,
-    aws_sns_subscriptions as subs,
     aws_s3 as s3
 )
 
+################################################################################
+#
+# API docs:
+# AWS CDK Python Reference:
+#     https://docs.aws.amazon.com/cdk/api/v2/python/index.html
+# AWS aws_cdk.aws_s3:
+#     https://docs.aws.amazon.com/cdk/api/v2/python/aws_cdk.aws_s3.html
+# PyPi aws-cdk.aws-s3: 
+#     https://pypi.org/project/aws-cdk.aws-s3/
+#   NOTE: need to figure out the difference between AWS and PyPi!!!
+#         this tutorial use PyPi.
+################################################################################
 
 class AwsCdkPyS301Stack(Stack):
 
@@ -25,6 +32,7 @@ class AwsCdkPyS301Stack(Stack):
         # the bucket during dismantling
         bucket = s3.Bucket(self, "MyCdkSample01Bucket-20220624-dzong",
                   removal_policy = RemovalPolicy.DESTROY,
-                  auto_delete_objects = True)
+                  auto_delete_objects = True,
+                  block_public_access=s3.BlockPublicAccess.BLOCK_ALL)
         
 
