@@ -24,13 +24,13 @@ class AwsCdkPyS301Stack(Stack):
         super().__init__(scope, construct_id, **kwargs)
 
         # create bucket: no encryption, retain bucket during dismantling
-        # bucket = s3.Bucket(self, "MyCdkSample01Bucket-20220624-dzong")
+        # bucket = s3.Bucket(self, "aws-cdk-py-s3-01-retain-20220624-gabepublic")
         # the above is equivalent to the following default:
         # {removalPolicy: cdk.RemovalPolicy.RETAIN,}
         
         # create bucket: no encryption, auto delete objects in the bucket, and
         # the bucket during dismantling
-        bucket = s3.Bucket(self, "MyCdkSample01Bucket-20220624-dzong",
+        bucket = s3.Bucket(self, "aws-cdk-py-s3-01-destroy-20220624-gabepublic",
                   removal_policy = RemovalPolicy.DESTROY,
                   auto_delete_objects = True,
                   block_public_access=s3.BlockPublicAccess.BLOCK_ALL)
