@@ -112,24 +112,24 @@ $ source .venv/bin/activate
 
 - Build
 ```
-$ cdk synth
+(.venv) $ cdk synth
 ```
 
 - Deploy
 ```
-$ cdk deploy
+(.venv) $ cdk deploy
 
 # to speed up the deployment time 
-$ cdk deploy --hotswap
+(.venv) $ cdk deploy --hotswap
 ```
 
 ## Test
 
 - Install testing packages
 ```
-$ cd ~/projects/aws-cdk-py-s3-01
+(.venv) $ cd ~/projects/aws-cdk-py-s3-01
 
-$ pip install -r requirements-dev.txt
+(.venv) $ pip install -r requirements-dev.txt
 ```
 
 - The test file: `./tests/unit/test_aws_cdk_py_s3_01_stack.py`
@@ -142,7 +142,8 @@ $ pip install -r requirements-dev.txt
   
 - Test Results as of 2022, July 2
 ```
-(.venv) desktop:~/projects/aws-cdk-py-s3-01$ pytest
+(.venv) $ cd ~/projects/aws-cdk-py-s3-01
+(.venv) $ pytest
 ========================================================= test session starts =========================================================
 platform linux -- Python 3.8.10, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
 rootdir: /home/<user>/projects/aws-cdk-py-s3-01
@@ -151,7 +152,7 @@ collected 4 items
 tests/unit/test_aws_cdk_py_s3_01_stack.py ....                                                                                  [100%]
 
 ========================================================== 4 passed in 6.21s ==========================================================
-(.venv) desktop:~/projects/aws-cdk-py-s3-01$
+(.venv) $
 ```
 
 ## Cleanup
@@ -173,7 +174,7 @@ tests/unit/test_aws_cdk_py_s3_01_stack.py ....                                  
 
 - Cleanup
 ```
-cdk destroy
+(.venv) $ cdk destroy
 ```
 
 Output:
@@ -208,64 +209,14 @@ Do you wish to deploy these changes (y/n)? y
 aws-cdk-py-s3-01: deploying...
 ```
 
-## Original Doc
-
-### Welcome to your CDK Python project!
-
-You should explore the contents of this project. It demonstrates a CDK app with an instance of a stack (`aws_cdk_py_s3_01_stack`)
-which contains an Amazon SQS queue that is subscribed to an Amazon SNS topic.
-
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
-
-This project is set up like a standard Python project.  The initialization process also creates
-a virtualenv within this project, stored under the .venv directory.  To create the virtualenv
-it assumes that there is a `python3` executable in your path with access to the `venv` package.
-If for any reason the automatic creation of the virtualenv fails, you can create the virtualenv
-manually once the init process completes.
-
-To manually create a virtualenv on MacOS and Linux:
-
+- Exit virtualenv
 ```
-$ python3 -m venv .venv
+(.venv) $ deactivate
+$
 ```
 
-After the init process completes and the virtualenv is created, you can use the following
-step to activate your virtualenv.
 
-```
-$ source .venv/bin/activate
-```
-
-If you are a Windows platform, you would activate the virtualenv like this:
-
-```
-% .venv\Scripts\activate.bat
-```
-
-Once the virtualenv is activated, you can install the required dependencies.
-
-```
-$ pip install -r requirements.txt
-```
-
-At this point you can now synthesize the CloudFormation template for this code.
-
-```
-$ cdk synth
-```
-
-You can now begin exploring the source code, contained in the aws-cdk-py-s3-01 directory.
-There is also a very trivial test included that can be run like this:
-
-```
-$ pytest
-```
-
-To add additional dependencies, for example other CDK libraries, just add to
-your requirements.txt file and rerun the `pip install -r requirements.txt`
-command.
-
-### Useful commands
+## Useful commands
 
  * `cdk ls`          list all stacks in the app
  * `cdk synth`       emits the synthesized CloudFormation template
@@ -273,4 +224,3 @@ command.
  * `cdk diff`        compare deployed stack with current state
  * `cdk docs`        open CDK documentation
 
-Enjoy!
