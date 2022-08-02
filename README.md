@@ -155,7 +155,7 @@ tests/unit/test_aws_cdk_py_s3_01_stack.py ....                                  
 (.venv) $
 ```
 
-## Cleanup
+## CLEANUP
 
 - **Note**: during cleanup, the default mechanism is to **not** delete the
   S3 bucket (`removalPolicy: cdk.RemovalPolicy.RETAIN`); only delete other 
@@ -172,7 +172,7 @@ tests/unit/test_aws_cdk_py_s3_01_stack.py ....                                  
               block_public_access=s3.BlockPublicAccess.BLOCK_ALL)
 ```
 
-- Cleanup
+- Cleanup all artifacts created by CDK
 ```
 (.venv) $ cdk destroy
 ```
@@ -208,6 +208,11 @@ IAM Policy Changes
 Do you wish to deploy these changes (y/n)? y
 aws-cdk-py-s3-01: deploying...
 ```
+
+- Additional cleanup not done by the the `cdk destroy`
+
+  - CloudWatch Log group; go to AWS Console "CloudWatch > Logs > Log groups"
+    and delete "/aws/lambda/aws-cdk-py-s3-01-*"  
 
 - Exit virtualenv
 ```
