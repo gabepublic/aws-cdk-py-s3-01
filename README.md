@@ -212,7 +212,9 @@ aws-cdk-py-s3-01: deploying...
 - Additional cleanup not done by the the `cdk destroy`
 
   - CloudWatch Log group; go to AWS Console "CloudWatch > Logs > Log groups"
-    and delete "/aws/lambda/aws-cdk-py-s3-01-*"  
+    and delete two log groups:
+    - `/aws/lambda/<stack-name>-CustomCDKBucketDeployment<unique-id>`
+    - `/aws/lambda/<stack-name>-CustomS3AutoDeleteObjectsCustomResourcePr-<unique-id>`
 
 - Exit virtualenv
 ```
